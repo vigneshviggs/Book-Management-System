@@ -1,0 +1,46 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}Hello {{request.user.username}} {% endblock %}
+{% block body_block %}
+    {% if request.user.member.profile_image.url  %}
+        <img src="{{ request.user.member.profile_image.url }}" alt="Image" style="width: 100px; height: 100px; display: block; margin: auto; border-radius: 50px;">
+    {% endif %}
+    {% if last_login %}
+        <h3>Last login : {{ last_login }}</h3>
+    {% else %}
+        <h3>Your las login was more than one hour ago.</h3>
+    {% endif %}
+
+    <br>
+        {% if booklist %}
+            <h2>List of Books</h2>
+            <br>
+
+            <div class="card-columns">
+
+
+{#            <ol class="list-group list-group-flush">#}
+                {% for book  in booklist %}
+{#                    <li><a class="list-group-item list-group-item-action" href="{% url 'myapp:detail' book.id %}">{{book.title}}</a></li>#}
+    {#                <li> {{book.title}} </li>#}
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                          <a class="list-group-item list-group-item-action" href="{% url 'myapp:detail' book.id %}">{{book.title}}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+{#            </ol>#}
+            </div>
+        {% else %}
+            <br>
+            <strong>There are no available books!</strong>
+        {% endif %}
+    <br>
+{#    <p><a href="/myapp/about">About Page</a></p>#}
+{#    <ul>#}
+{#        <li><a href="{% url 'myapp:place_order' %}">Place Order</a></li>#}
+{#        <li><a href="{% url 'myapp:review' %}">Review Book</a></li>#}
+{#    </ul>#}
+{% endblock %}
+
+</html>

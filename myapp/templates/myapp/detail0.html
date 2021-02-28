@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eBook App</title>
+</head>
+<body>
+
+    <h2> {{book.title}} </h2>
+    <h3> $ {{book.price}} </h3>
+    <h3> {{book.publisher.name}} </h3>
+
+    <br>
+<a href="{% url 'myapp:index' %}">Index Page</a><br>
+<a href="{% url 'myapp:about' %}">About Page</a>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{% extends 'myapp/base.html' %}
+{% block myhdg %}Hello {{name}} {% endblock %}
+{% block body_block %}
+    <body>
+        {% if category %}
+            <h2>List of Books of Category {{ category }}</h2>
+        {% else %}
+            <h2>List of Books</h2>
+        {% endif %}
+        {% if booklist %}
+            <div class="card-columns">
+{#            <ol class="list-group list-group-flush">#}
+                {% for book  in booklist %}
+{#                    <li><a class="list-group-item list-group-item-action" href="{% url 'myapp:detail' book.id %}">{{book.title}}</a></li>#}
+{#                    <li> {{book.title}} </li>#}
+
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+{#                          <p class="card-text"><a class="list-group-item list-group-item-action" href="{% url 'myapp:detail' book.id %}">{{book.title}}</a></p>#}
+                            <a class="list-group-item list-group-item-action" href="{% url 'myapp:detail' book.id %}">{{book.title}}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+{#            </ol>#}
+            </div>
+        {% else %}
+            <strong>There are no available books!</strong>
+        {% endif %}
+    <br>
+    </body>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+{#    {% if next %}#}
+{#        <form action="myapp/login?next={{next}}" method="post" >#}
+{#    {%else%}#}
+        <form action="{% url 'myapp:login' %}" method="post">
+{#    {% endif %}#}
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" width="200px;" placeholder="Enter username" name="username">
+            </div>
+{#        <input type="text" name="username">#}
+{#        <br>#}
+{#        Password:<br>#}
+{#        <input type="password" name="password">#}
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" width="200px;" placeholder="Enter password" name="password">
+            </div>
+        <br>
+        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+        <input type="submit" name="submit1" class="btn btn-dark" style="display: block; margin: auto;" value="Login" />
+    </form>
+{% endblock %}

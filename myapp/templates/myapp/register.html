@@ -1,0 +1,12 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}{% endblock %}
+
+{% block body_block %}
+    <form action="{% url 'myapp:register' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="submit1" class="btn btn-dark" style="display: block; margin: auto;" value="Register"/>
+    </form>
+
+{% endblock %}

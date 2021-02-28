@@ -1,0 +1,41 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}Hello {{ name }}{% endblock %}
+
+{% block body_block %}
+    {% if new_list %}
+        <h2>List of Orders</h2>
+        <table class="table">
+            <thead>
+                <th>Order Type</th>
+                <th>Order Date</th>
+                <th>Books</th>
+            </thead>
+            <tbody>
+            {% for order, book in new_list %}
+                <td>
+                {% if order.order_type == 0 %}
+                    Purchase
+                {% else %}
+                    Borrow
+                {% endif %}
+                </td>
+                <td>
+                {{ order.order_date }}
+                </td>
+                <td>
+                {{ book }}
+                </td>
+                <tr>
+            {% endfor %}
+            </tbody>
+{#            {% for book in book_list %}#}
+{#                <li>{{ book }}</li>#}
+{#            {% endfor %}#}
+        </table>
+
+    {% else %}
+        <strong>There are no available orders!</strong>
+    {% endif %}
+
+{% endblock %}

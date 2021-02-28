@@ -1,0 +1,35 @@
+h1 {
+    display: block;
+    margin: auto;
+    /*margin: 15px;*/
+    text-align: center;
+    /*background-color: bisque;*/
+    color: blueviolet;
+}
+
+h2{
+    /*background-color: gray;*/
+    color: gray;
+    text-align: center;
+}
+
+h3, h4, h5{
+    text-align: center;
+}
+
+body{
+    background-color: aliceblue;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.ml-auto {
+  left: auto !important;
+  right: 0px;
+}
+
+li{
+    list-style: none;
+}
